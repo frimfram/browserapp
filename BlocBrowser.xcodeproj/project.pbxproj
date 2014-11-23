@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		02ED6E721A2122FE00C48C49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E711A2122FE00C48C49 /* main.m */; };
-		02ED6E751A2122FE00C48C49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E741A2122FE00C48C49 /* AppDelegate.m */; };
+		02ED6E751A2122FE00C48C49 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E741A2122FE00C48C49 /* BLCAppDelegate.m */; };
 		02ED6E7D1A2122FE00C48C49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02ED6E7C1A2122FE00C48C49 /* Images.xcassets */; };
 		02ED6E801A2122FE00C48C49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02ED6E7E1A2122FE00C48C49 /* LaunchScreen.xib */; };
 		02ED6E8C1A2122FE00C48C49 /* BlocBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E8B1A2122FE00C48C49 /* BlocBrowserTests.m */; };
 		02ED6E971A21238700C48C49 /* BLCWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E961A21238700C48C49 /* BLCWebBrowserViewController.m */; };
+		02ED6E9A1A219F6200C48C49 /* BLCAwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED6E991A219F6200C48C49 /* BLCAwesomeFloatingToolbar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +30,8 @@
 		02ED6E6C1A2122FE00C48C49 /* BlocBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02ED6E701A2122FE00C48C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02ED6E711A2122FE00C48C49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		02ED6E731A2122FE00C48C49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		02ED6E741A2122FE00C48C49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		02ED6E731A2122FE00C48C49 /* BLCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCAppDelegate.h; sourceTree = "<group>"; };
+		02ED6E741A2122FE00C48C49 /* BLCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCAppDelegate.m; sourceTree = "<group>"; };
 		02ED6E7C1A2122FE00C48C49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02ED6E7F1A2122FE00C48C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		02ED6E851A2122FE00C48C49 /* BlocBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +39,8 @@
 		02ED6E8B1A2122FE00C48C49 /* BlocBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocBrowserTests.m; sourceTree = "<group>"; };
 		02ED6E951A21238700C48C49 /* BLCWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCWebBrowserViewController.h; sourceTree = "<group>"; };
 		02ED6E961A21238700C48C49 /* BLCWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCWebBrowserViewController.m; sourceTree = "<group>"; };
+		02ED6E981A219F6200C48C49 /* BLCAwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCAwesomeFloatingToolbar.h; sourceTree = "<group>"; };
+		02ED6E991A219F6200C48C49 /* BLCAwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCAwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +82,15 @@
 		02ED6E6E1A2122FE00C48C49 /* BlocBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				02ED6E731A2122FE00C48C49 /* AppDelegate.h */,
-				02ED6E741A2122FE00C48C49 /* AppDelegate.m */,
+				02ED6E731A2122FE00C48C49 /* BLCAppDelegate.h */,
+				02ED6E741A2122FE00C48C49 /* BLCAppDelegate.m */,
 				02ED6E7C1A2122FE00C48C49 /* Images.xcassets */,
 				02ED6E7E1A2122FE00C48C49 /* LaunchScreen.xib */,
 				02ED6E6F1A2122FE00C48C49 /* Supporting Files */,
 				02ED6E951A21238700C48C49 /* BLCWebBrowserViewController.h */,
 				02ED6E961A21238700C48C49 /* BLCWebBrowserViewController.m */,
+				02ED6E981A219F6200C48C49 /* BLCAwesomeFloatingToolbar.h */,
+				02ED6E991A219F6200C48C49 /* BLCAwesomeFloatingToolbar.m */,
 			);
 			path = BlocBrowser;
 			sourceTree = "<group>";
@@ -215,9 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02ED6E751A2122FE00C48C49 /* AppDelegate.m in Sources */,
+				02ED6E751A2122FE00C48C49 /* BLCAppDelegate.m in Sources */,
 				02ED6E721A2122FE00C48C49 /* main.m in Sources */,
 				02ED6E971A21238700C48C49 /* BLCWebBrowserViewController.m in Sources */,
+				02ED6E9A1A219F6200C48C49 /* BLCAwesomeFloatingToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +408,7 @@
 				02ED6E911A2122FE00C48C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02ED6E921A2122FE00C48C49 /* Build configuration list for PBXNativeTarget "BlocBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +417,7 @@
 				02ED6E941A2122FE00C48C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

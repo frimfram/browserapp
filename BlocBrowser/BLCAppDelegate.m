@@ -1,19 +1,19 @@
 //
-//  AppDelegate.m
+//  BLCAppDelegate.m
 //  BlocBrowser
 //
 //  Created by Jean Ro on 11/22/14.
 //  Copyright (c) 2014 Jean Ro. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BLCAppDelegate.h"
 #import "BLCWebBrowserViewController.h"
 
-@interface AppDelegate ()
+@interface BLCAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation BLCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
