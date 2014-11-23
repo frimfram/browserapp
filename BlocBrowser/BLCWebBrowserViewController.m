@@ -14,6 +14,11 @@
 #define kBLCWebBrowserStopString NSLocalizedString(@"Stop", @"Stop command")
 #define kBLCWebBrowserRefreshString NSLocalizedString(@"Refresh", @"Reload command")
 
+#define kBLCInitialToolbarWidth 280
+#define kBLCInitialToolbarHeight 300
+#define kBLCMinToolbarWidth 80
+#define kBLCMinToolbarHeight 50
+
 @interface BLCWebBrowserViewController () <UIWebViewDelegate, UITextFieldDelegate, BLCAwesomeFloatingToolbarDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
@@ -21,6 +26,11 @@
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) BLCAwesomeFloatingToolbar *awesomeToolbar;
 @property (nonatomic, assign) NSUInteger frameCount;
+
+@property (nonatomic, assign) CGFloat toolbarWidth;
+@property (nonatomic, assign) CGFloat toolbarHeight;
+@property (nonatomic, assign) BOOL isPanning;
+
 @end
 
 @implementation BLCWebBrowserViewController
@@ -43,6 +53,9 @@
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
     self.textField.leftView = paddingView;
     self.textField.leftViewMode = UITextFieldViewModeAlways;
+    self.toolbarWidth = kBLCInitialToolbarWidth;
+    self.toolbarHeight = kBLCInitialToolbarHeight;
+    self.isPanning = NO;
     
     self.awesomeToolbar = [[BLCAwesomeFloatingToolbar alloc] initWithFourTitles:@[kBLCWebBrowserBackString, kBLCWebBrowserForwardString, kBLCWebBrowserRefreshString, kBLCWebBrowserStopString]];
     self.awesomeToolbar.delegate = self;
@@ -73,10 +86,13 @@
     self.textField.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.textField.frame), width, browserHeight);
     
-    CGFloat toolbarX = width/2 - 140;
-    CGFloat toolbarY = height/2 - 15;
+    if(!self.isPanning) {
+        CGFloat toolbarX = width/2 - self.toolbarWidth/2;
+        CGFloat toolbarY = height/2 - self.toolbarHeight/2;
     
-    self.awesomeToolbar.frame = CGRectMake(toolbarX, toolbarY, 280, 60);
+        self.awesomeToolbar.frame = CGRectMake(toolbarX, toolbarY, self.toolbarWidth, self.toolbarHeight);
+    }
+    self.isPanning = NO;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -153,6 +169,31 @@
         [self.webView stopLoading];
     } else if ([title isEqual:kBLCWebBrowserRefreshString]) {
         [self.webView reload];
+    }
+}
+
+- (void) floatingToolbar:(BLCAwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint)offset {
+    CGPoint startingPoint = toolbar.frame.origin;
+    CGPoint newPoint = CGPointMake(startingPoint.x + offset.x, startingPoint.y + offset.y);
+    
+    CGRect potentialNewFrame = CGRectMake(newPoint.x, newPoint.y, CGRectGetWidth(toolbar.frame), CGRectGetHeight(toolbar.frame));
+    
+    if(CGRectContainsRect(self.view.bounds, potentialNewFrame)) {
+        self.isPanning = YES;
+        toolbar.frame = potentialNewFrame;
+    }
+}
+
+- (void) floatingToolbar:(BLCAwesomeFloatingToolbar *)toolbar didTryToPinchWithScale:(CGFloat)scale {
+    CGFloat newWidth = self.toolbarWidth *scale;
+    CGFloat newHeight = self.toolbarHeight*scale;
+    
+    if (newWidth > kBLCMinToolbarWidth && newWidth < CGRectGetWidth(self.view.bounds) &&
+        newHeight > kBLCMinToolbarHeight && newHeight < CGRectGetHeight(self.view.bounds)){
+            
+        self.toolbarWidth = self.toolbarWidth *scale;
+        self.toolbarHeight = self.toolbarHeight*scale;
+        self.awesomeToolbar.transform = CGAffineTransformScale(self.awesomeToolbar.transform, scale, scale);
     }
 }
 
